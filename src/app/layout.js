@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning style={{ scrollBehavior: 'smooth' }}>
       <body className={`${syne.variable} ${dmSans.variable}`}>
         {children}
       </body>

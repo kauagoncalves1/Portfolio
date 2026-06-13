@@ -18,7 +18,7 @@ Meu portfólio pessoal desenvolvido com as tecnologias mais modernas do mercado.
 
 ## 🔗 Acesse
 
-[Site](kauagoncalves.vercel.app/)
+- Site: [Meu Site Portfólio](kauagoncalves.vercel.app/)
 
 ## 📬 Contato
 

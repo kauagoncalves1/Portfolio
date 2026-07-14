@@ -27,7 +27,7 @@ const projects = [
     description: 'Site institucional com chatbot de IA integrado para uma clínica de estética fictícia, desenvolvido como projeto de estudo full-stack.',
     tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Groq SDK', 'Vercel'],
     github: 'https://github.com/kauagoncalves1/renove-estetica',
-    live: 'https://seu-renove-estetica.vercel.app/',
+    live: 'https://renove-estetica.vercel.app',
   },
   {
   title: 'Portfólio [Este]',

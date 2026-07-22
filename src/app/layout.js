@@ -18,6 +18,11 @@ export const metadata = {
   description: 'Portfólio de Kauã Goncalves — desenvolvedor front-end especializado em Next.js, React e Tailwind.',
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning style={{ scrollBehavior: 'smooth' }}>

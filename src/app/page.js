@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,6 +36,9 @@ export default function Portfolio() {
             </li>
             <li>
               <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a>
+            </li>
+            <li>
+              <Link href="/orcamento" onClick={() => setMenuOpen(false)}>Orçamento</Link>
             </li>
             <li>
               <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>

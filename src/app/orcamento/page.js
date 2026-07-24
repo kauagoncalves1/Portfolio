@@ -8,15 +8,15 @@ import { fadeUp, stagger } from "@/components/CaseFileUI";
 const WHATSAPP_NUMBER = "5521986129519";
 
 const QUOTE_ITEMS = [
-  { id: "landing", name: "Landing page simples", desc: "Site institucional de 1 página, responsivo.", price: 600 },
-  { id: "multipage", name: "Site multi-página", desc: "Várias páginas (Home, Sobre, Serviços, Contato).", price: 1200 },
-  { id: "admin", name: "Painel administrativo", desc: "Login, gestão de conteúdo/pedidos, dashboard.", price: 900 },
-  { id: "db", name: "Banco de dados (Supabase)", desc: "Estrutura de dados, autenticação e storage.", price: 500 },
+  { id: "landing", name: "Landing page simples", desc: "Site institucional de 1 página, responsivo.", price: 500 },
+  { id: "multipage", name: "Site multi-página", desc: "Várias páginas (Home, Sobre, Serviços, Contato).", price: 1300 },
+  { id: "admin", name: "Painel administrativo", desc: "Login, gestão de conteúdo/pedidos, visão do site em geral.", price: 900 },
+  { id: "db", name: "Banco de dados (Supabase)", desc: "Estrutura de dados, autenticação e storage.", price: 600 },
   { id: "ai", name: "Assistente com IA", desc: "Chatbot/assistente integrado (Groq/Llama).", price: 700 },
-  { id: "automation", name: "Automação de processos", desc: "Fluxos automáticos (n8n, notificações, relatórios).", price: 550 },
+  { id: "automation", name: "Automação de processos", desc: "Fluxos automáticos (n8n, notificações, relatórios).", price: 600 },
   { id: "analytics", name: "Dashboard de analytics", desc: "Gráficos e métricas do negócio em tempo real.", price: 450 },
-  { id: "ecommerce", name: "Loja / pedidos online", desc: "Catálogo, carrinho e simulação de pedidos.", price: 800 },
-  { id: "maintenance", name: "Manutenção mensal", desc: "Suporte, ajustes e pequenas melhorias contínuas.", price: 250 },
+  { id: "ecommerce", name: "Loja / pedidos online", desc: "Catálogo, carrinho e simulação de pedidos.", price: 1800 },
+  { id: "maintenance", name: "Manutenção mensal", desc: "Suporte, ajustes e pequenas melhorias contínuas.", price: 200 },
 ];
 
 const fmt = (n) => "R$ " + n.toLocaleString("pt-BR");

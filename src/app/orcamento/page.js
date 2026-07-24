@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeUp, stagger } from "@/components/CaseFileUI";
 
-const WHATSAPP_NUMBER = "5521986129519"; 
+const WHATSAPP_NUMBER = "5521986129519";
 
 const QUOTE_ITEMS = [
   { id: "landing", name: "Landing page simples", desc: "Site institucional de 1 página, responsivo.", price: 600 },
@@ -21,19 +23,14 @@ const fmt = (n) => "R$ " + n.toLocaleString("pt-BR");
 
 export default function Orcamento() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("in");
-        });
-      },
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const toggle = (id) => {
@@ -58,68 +55,63 @@ export default function Orcamento() {
 
   return (
     <>
-      <nav>
+      <nav className={scrolled ? "scrolled" : ""}>
         <div className="wrap">
-          <Link href="/" className="logo">
-            kauã<em>.</em>dev
-          </Link>
+          <Link href="/" className="logo">Kaua<em>.</em>Goncalves</Link>
           <ul className={`navlinks ${menuOpen ? "open" : ""}`}>
-            <li>
-              <Link href="/#sobre" onClick={() => setMenuOpen(false)}>Sobre</Link>
-            </li>
-            <li>
-              <Link href="/#skills" onClick={() => setMenuOpen(false)}>Stack</Link>
-            </li>
-            <li>
-              <Link href="/#projetos" onClick={() => setMenuOpen(false)}>Projetos</Link>
-            </li>
-            <li>
-              <Link href="/orcamento" onClick={() => setMenuOpen(false)} style={{ color: "var(--stamp)" }}>Orçamento</Link>
-            </li>
-            <li>
-              <Link href="/#contato" onClick={() => setMenuOpen(false)}>Contato</Link>
-            </li>
+            <li><Link href="/#sobre" onClick={() => setMenuOpen(false)}>Sobre</Link></li>
+            <li><Link href="/#skills" onClick={() => setMenuOpen(false)}>Stack</Link></li>
+            <li><Link href="/#projetos" onClick={() => setMenuOpen(false)}>Projetos</Link></li>
+            <li><Link href="/#templates" onClick={() => setMenuOpen(false)}>Modelos prontos</Link></li>
+            <li><Link href="/#contato" onClick={() => setMenuOpen(false)}>Contato</Link></li>
           </ul>
-          <button className="navtoggle" onClick={() => setMenuOpen(!menuOpen)}>
-            ☰
+          <span className="nav-cta" style={{ background: "var(--red)" }}>Orçamento aberto</span>
+          <button
+            className={`navtoggle ${menuOpen ? "active" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Abrir menu"
+          >
+            <span /><span /><span />
           </button>
         </div>
       </nav>
+      <div className="nav-spacer" />
 
-      <header className="hero" style={{ paddingBottom: "40px" }}>
+      <header className="hero" style={{ paddingBottom: "24px", paddingTop: "44px" }}>
         <div className="wrap">
-          <div className="folio-tag">
-            <span className="dot"></span> Simulador de orçamento
-          </div>
-          <h1 className="title">
-            Monte seu <span className="it">orçamento</span>
-            <br />
-            e me chame no WhatsApp.
-          </h1>
-          <p className="hero-sub">
-            Marque o que seu projeto precisa e veja uma estimativa na hora. É só um
-            ponto de partida — no fim você me manda direto pelo WhatsApp e a gente
-            ajusta o escopo certinho.
-          </p>
+          <motion.div variants={stagger} initial="hidden" animate="show">
+            <motion.div variants={fadeUp} className="eyebrow">
+              <span className="dot" /> Simulador de orçamento
+            </motion.div>
+            <motion.h1 variants={fadeUp} className="title" style={{ fontSize: "clamp(2rem, 6vw, 3.2rem)" }}>
+              Monte seu <span className="it">orçamento</span>
+              <br />
+              e me chame no WhatsApp.
+            </motion.h1>
+            <motion.p variants={fadeUp} className="hero-sub">
+              Marque o que seu projeto precisa e veja uma estimativa na hora. É
+              só um ponto de partida — no fim você me manda direto pelo
+              WhatsApp e a gente ajusta o escopo certinho.
+            </motion.p>
+          </motion.div>
         </div>
       </header>
 
-      <section className="section" style={{ paddingTop: "20px" }}>
+      <section className="section" style={{ paddingTop: "10px" }}>
         <div className="wrap">
-          <div className="quote-layout" data-reveal>
+          <motion.div
+            className="quote-layout"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="quote-items">
               {QUOTE_ITEMS.map((item) => {
                 const checked = selected.includes(item.id);
                 return (
-                  <label
-                    key={item.id}
-                    className={`quote-item ${checked ? "checked" : ""}`}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={checked}
-                      onChange={() => toggle(item.id)}
-                    />
+                  <label key={item.id} className={`quote-item ${checked ? "checked" : ""}`}>
+                    <input type="checkbox" checked={checked} onChange={() => toggle(item.id)} />
                     <div className="qi-info">
                       <div className="qi-name">{item.name}</div>
                       <div className="qi-desc">{item.desc}</div>
@@ -133,8 +125,8 @@ export default function Orcamento() {
             <div className="quote-summary">
               <h3>Resumo</h3>
               <p className="qs-hint">
-                Valores de referência ajustáveis conforme escopo real
-                do projeto.
+                Valores de referência ajustáveis conforme escopo real do
+                projeto.
               </p>
               <div className="qs-list">
                 {chosen.length === 0 ? (
@@ -153,24 +145,26 @@ export default function Orcamento() {
                 <span className="v">{fmt(total)}</span>
               </div>
               <p className="qs-note">
-                *Estimativa inicial, sem compromisso. O valor final é confirmado após
-                conversa sobre o escopo.
+                *Estimativa inicial, sem compromisso. O valor final é confirmado
+                após conversa sobre o escopo.
               </p>
-              <button
+              <motion.button
                 className="qs-send"
                 disabled={chosen.length === 0}
                 onClick={sendQuote}
+                whileHover={chosen.length ? { x: 2, y: -2 } : {}}
+                whileTap={chosen.length ? { scale: 0.97 } : {}}
               >
                 Enviar pelo WhatsApp →
-              </button>
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <footer>
         <div className="wrap">
-          <p>© 2026 Kauã Gonçalves — dossiê de projetos</p>
+          <p>© 2026 Kauã Gonçalves</p>
           <div className="foot-links">
             <a href="https://github.com/kauagoncalves1">GitHub</a>
             <a href="https://www.linkedin.com/in/kaua-gon%C3%A7alves">LinkedIn</a>

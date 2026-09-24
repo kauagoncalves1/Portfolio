@@ -188,9 +188,7 @@ export default function Portfolio() {
               <motion.p variants={fadeUp}>
                 Meu foco atual é ir além do CRUD tradicional: uso <strong>IA
                 </strong> para assistentes dentro dos sistemas e{" "}
-                <strong>automações com n8n</strong> para eliminar tarefas manuais —
-                como prospecção e envio de mensagens — do dia a dia dos meus
-                clientes.
+                <strong>automações com n8n</strong> para eliminar tarefas manuais.  
               </motion.p>
             </motion.div>
             <motion.div className="stat-grid" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>

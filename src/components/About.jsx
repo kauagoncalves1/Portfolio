@@ -29,7 +29,7 @@ export default function About() {
                     para pequenas empresas. Meu foco é unir design limpo com código eficiente.
                 </p>
                 <p>
-                    Busco oportunidades para crescer como <strong className="text-slate-300">desenvolvedor full-stack</strong> e
+                    Busco oportunidades para crescer como <strong className="text-slate-300">desenvolvedor </strong> e
                     continuar evoluindo minhas habilidades na prática.
                 </p>
                 </div>

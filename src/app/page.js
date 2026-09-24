@@ -137,7 +137,7 @@ export default function Portfolio() {
             <motion.p variants={fadeUp} className="hero-sub">
               Sou o Kauã, desenvolvedor full-stack no Rio de Janeiro. Cada projeto
               abaixo é um caso real: um negócio, um problema e um sistema entregue
-              em produção — do front ao banco de dados, com automação onde faz
+              em produção dês do front ao banco de dados, com automação onde faz
               sentido.
             </motion.p>
             <motion.div variants={fadeUp} className="hero-actions">
@@ -148,8 +148,7 @@ export default function Portfolio() {
               <div className="meta-row">
                 <div><div className="m-l">Base</div><div className="m-v">Rio de Janeiro</div></div>
                 <div><div className="m-l">Foco</div><div className="m-v">Full-stack &amp; IA</div></div>
-                <div><div className="m-l">Stack</div><div className="m-v">Next.js · Supabase</div></div>
-                <div><div className="m-l">Status</div><div className="m-v">Disponível</div></div>
+                <div><div className="m-l">Stack</div><div className="m-v">Next.js and Node</div></div>
               </div>
             </motion.div>
           </motion.div>
@@ -177,8 +176,8 @@ export default function Portfolio() {
             <motion.div className="about-text" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>
               <motion.p variants={fadeUp}>
                 Comecei pelo front-end e hoje entrego <strong>sistemas completos de
-                produção</strong> — bancos de dados, painéis administrativos,
-                integrações com IA e automações — para pequenos negócios reais.
+                produção</strong> bancos de dados, painéis administrativos,
+                integrações com IA e automações para negócios.
               </motion.p>
               <motion.p variants={fadeUp}>
                 Trabalho como <strong>freelancer</strong>, do primeiro site
@@ -188,7 +187,7 @@ export default function Portfolio() {
               </motion.p>
               <motion.p variants={fadeUp}>
                 Meu foco atual é ir além do CRUD tradicional: uso <strong>IA
-                (Groq/Llama)</strong> para assistentes dentro dos sistemas e{" "}
+                </strong> para assistentes dentro dos sistemas e{" "}
                 <strong>automações com n8n</strong> para eliminar tarefas manuais —
                 como prospecção e envio de mensagens — do dia a dia dos meus
                 clientes.
@@ -220,19 +219,13 @@ export default function Portfolio() {
             <motion.div variants={fadeUp} className="skill-card">
               <h3>Back-end &amp; Dados</h3>
               <div className="taglist">
-                <StackTag label="Node.js" /><StackTag label="Python" /><StackTag label="Supabase" /><StackTag label="PostgreSQL & RLS" />
+                <StackTag label="Node.js" /><StackTag label="Python" /><StackTag label="PostgreSQL & RLS" />
               </div>
             </motion.div>
             <motion.div variants={fadeUp} className="skill-card">
               <h3>IA &amp; Automação</h3>
               <div className="taglist">
-                <StackTag label="Groq API" /><StackTag label="Llama 3.3" /><StackTag label="n8n" /><StackTag label="Z-API (WhatsApp)" />
-              </div>
-            </motion.div>
-            <motion.div variants={fadeUp} className="skill-card">
-              <h3>Dados &amp; Visualização</h3>
-              <div className="taglist">
-                <span className="tag">Recharts</span><span className="tag">Dashboards</span><span className="tag">Analytics</span>
+                <StackTag label="Llama 3.3" /><StackTag label="n8n" />
               </div>
             </motion.div>
             <motion.div variants={fadeUp} className="skill-card">

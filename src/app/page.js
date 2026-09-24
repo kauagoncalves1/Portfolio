@@ -194,7 +194,7 @@ export default function Portfolio() {
             <motion.div className="stat-grid" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>
               <motion.div variants={fadeUp} className="stat"><div className="n">6+</div><div className="l">Projetos entregues</div></motion.div>
               <motion.div variants={fadeUp} className="stat"><div className="n">100%</div><div className="l">Aprovação dos Clientes</div></motion.div>
-              <motion.div variants={fadeUp} className="stat"><div className="n">IA</div><div className="l">Integrada aos sistemas</div></motion.div>
+              <motion.div variants={fadeUp} className="stat"><div className="n">IA</div><div className="l">Com engenharia de Prompt</div></motion.div>
               <motion.div variants={fadeUp} className="stat"><div className="n">n8n</div><div className="l">Automação de processos</div></motion.div>
             </motion.div>
           </div>
